@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+
+    <!-- Задача 2 -->
+
+    <input type="text" id="inp2" placeholder="Введите текст">
+    <button onclick="addItem()">Добавить</button>
+
+    <div id="list"></div>
+
+
+
+    <!-- Задача 3 -->
+    
+    <div>Какова элемента нехвотает? (0, 1, 2, 3, 5, 7, 8, 9, 11)</div>
+    <!-- Поле ввода для ввода элемента -->
+    <input type="text" id="inp1" placeholder="Введите элемент">
+    <!-- Кнопка для проверки -->
+    <button id="btn">Проверить</button>
+    <!-- Место для вывода результата -->
+    <div id="res"></div>
+
+
+
+    <!-- Задача 4 -->
+
+    <button id="filter">Фильтровать массив</button>
+    <p id="result"></p>
+
+
+    <script>
+
+        //Задача 1
+        const mySet = new Set(['e', 'r', 'i', 'k', 't', 'h', 'e', 'b', 'e', 's', 't']);
+        console.log(mySet);
+
+
+
+        //Задача 2
+        const elements = ['4', '6', '10'];
+        function checkElement() {
+            const inp1Value = document.getElementById('inp1').value;
+            const res = document.getElementById('res');
+
+            if (elements.includes(inp1Value)) {
+                res.innerHTML = 'true';
+            } else {
+                res.innerHTML = 'false';
+            }
+        }
+        document.getElementById('btn').addEventListener('click', checkElement);
+
+
+
+        //Задача 3
+        function addItem() {
+            const inp2 = document.getElementById("inp2");
+            const newItem = inp2.value;
+
+            if (newItem.trim() !== "") {
+                const listDiv = document.getElementById("list");
+                const listItem = document.createElement("div");
+                listItem.textContent = newItem;
+
+                listDiv.appendChild(listItem);
+
+                inp.value = "";
+                } 
+            else {
+                alert("Введите текст перед добавлением!");
+                }
+        }
+
+        function filterArray(array) {
+            const result = [];
+        }
+
+
+
+        //Задача 4
+        const array = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+
+        function filterArray() {
+            const filteredArray = [];
+            for (const num of array) {
+                if (num > 5) {
+                    filteredArray.push(num);
+                }
+            }
+            return filteredArray;
+        }
+
+        document.getElementById('filter').addEventListener('click', () => {
+            const result = filterArray();
+            document.getElementById('result').innerText = 'Результат: ' + result;
+        });
+
+
+    </script>
+</body>
+</html>
+
+
+
+
